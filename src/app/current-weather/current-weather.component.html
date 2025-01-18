@@ -1,14 +1,21 @@
-<div>
-  <div>
-    <span>{{current.city}}, {{current.country}}</span>
-    <br />
-    <span>{{current.date | date:'fullDate'}}</span>
-  </div>
-  <div>
-    <img [src]="current.image" />
-    <span>{{current.temperature | number:'1.0-0'}} &deg;F</span>
-  </div>
-  <div>
-    {{current.description}}
-  </div>
+<div *ngIf="current.city === ''">
+  No data available
+</div>
+<div *ngIf="current.city !== ''">
+  <mat-card class="weather-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{current.city}}, {{current.country}}</mat-card-title>
+      <mat-card-subtitle>{{current.date | date:'fullDate'}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="current.image" alt="Photo of a weather">
+    <mat-card-content>
+      <p>
+        {{current.temperature | number:'1.0-0'}} &deg;F
+      </p>
+      <p>
+        {{current.description}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
 </div>

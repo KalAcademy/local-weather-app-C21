@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { ICurrentWeather } from '../icurrent-weather';
 import { WeatherService } from '../weather.service';
-import { DatePipe, DecimalPipe } from '@angular/common';
+import { CommonModule, DatePipe, DecimalPipe } from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-current-weather',
-  imports: [DatePipe, DecimalPipe],
+  imports: [DatePipe, DecimalPipe, CommonModule, MatCardModule, MatButtonModule],
   templateUrl: './current-weather.component.html',
   styleUrl: './current-weather.component.css'
 })

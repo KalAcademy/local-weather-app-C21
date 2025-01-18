@@ -1,0 +1,8 @@
+.weather-card {
+  max-width: 400px;
+  float: left;
+}
+
+.weather-header-image {
+  background-size: cover;
+}
