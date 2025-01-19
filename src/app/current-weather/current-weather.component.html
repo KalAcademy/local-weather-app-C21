@@ -1,7 +1,7 @@
-<div *ngIf="current.city === ''">
+<div *ngIf="current.description === ''">
   No data available
 </div>
-<div *ngIf="current.city !== ''">
+<div *ngIf="current.description !== ''" >
   <mat-card class="weather-card" appearance="outlined">
     <mat-card-header>
       <mat-card-title>{{current.city}}, {{current.country}}</mat-card-title>

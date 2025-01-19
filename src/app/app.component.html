@@ -5,8 +5,10 @@
   <div>Your city, your forecast, right now!</div>
   <br />
   <div>
-    <app-city-search></app-city-search>
+    <app-city-search (searchEvent)="doSearch($event)"></app-city-search>
   </div>
   <h2>Current Weather</h2>
-  <app-current-weather />
+  <div style="max-width: 400px; margin-left: 800px; margin-top: 50px;">
+    <app-current-weather [current]="currentWeather" />
+  </div>
 </div>

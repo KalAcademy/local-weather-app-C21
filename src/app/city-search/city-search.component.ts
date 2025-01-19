@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -14,13 +14,14 @@ import { CommonModule } from '@angular/common';
 })
 export class CitySearchComponent {
   search = new FormControl('', [Validators.minLength(3)])
+  @Output() searchEvent = new EventEmitter<string>();
 
   constructor(){
     this.search.valueChanges
     .pipe(debounceTime(1000))
     .subscribe(searchValue => {
       if (!this.search.invalid){
-        console.log(searchValue)
+        this.searchEvent.emit(searchValue??undefined)
       }
     })
   }
